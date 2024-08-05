@@ -39,18 +39,23 @@ Dockerを使用してSadTalkerモデルを設定し、画像と音声ファイ�
 bash scripts/download_models.sh
 ```
 
-2. Dockerイメージをビルドし、コンテナを実行します。
+2. Docker環境を構築します。
 
 ```sh
-docker-compose up --build
+docker-compose up
 ```
 
-## 使用方法
+3. Dockerコンテナに入ります。
+```sh
+docker-compose exec sadtalker /bin/bash
+```
 
-Dockerコンテナ内でスクリプトを実行します。
+## 使用例
+
+次のコマンドを実行して動画を生成します。
 
 ```sh
-docker-compose run app python generate_video.py input/image/art_1.jpg input/audio/japanese.wav output/video.mp4
+python3.8 generate_video.py --source_image ./input/image/art_1.png --driven_audio ./input/audio/japanese.wav --result_dir ./results
 ```
 
 ## 対応ファイル形式

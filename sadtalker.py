@@ -31,7 +31,8 @@ class SadTalker:
             raise ValueError("Can't get the coeffs of the input image")
 
         # Convert audio to coefficients
-        batch = get_data(first_coeff_path, driven_audio_path, self.device)
+        ref_eyeblink_coeff_path = None
+        batch = get_data(first_coeff_path, driven_audio_path, self.device, ref_eyeblink_coeff_path)
         coeff_path = self.audio_to_coeff.generate(batch, save_dir, pose_style=0)
 
         # Render the face from coefficients

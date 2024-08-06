@@ -15,3 +15,5 @@ RUN python3.8 -m pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torch
   python3.8 -m pip install -r requirements.txt
 
 COPY . .
+
+CMD ["tail", "-f", "/dev/null"]
